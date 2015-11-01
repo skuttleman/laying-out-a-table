@@ -13,7 +13,6 @@ var MOUNTAINS = [
 
 describe('Laying out a Table', function(){
 	it('should have a draw method.', function() {
-		console.log(typeof code.laying_out_a_table.draw);
 		expect(typeof code.laying_out_a_table.draw).to.equal('function');
 	});
 
@@ -44,11 +43,9 @@ describe('Laying out a Table', function(){
 	it('should have a second row of just dashes', function() {
 		var dashrow = code.laying_out_a_table.draw(MOUNTAINS)[1];
 		var pass = true;
-		var dash = '';
 		for (var i = 0; i < dashrow.length; i ++) {
-			for (var j = 0; j < dashrow[i]; j ++) {
-				dash += '-';
-			}
+			var dash = '';
+			while (dash.length < dashrow[i].length) dash += '-';
 			if (dash !== dashrow[i]) pass = false;
 		}
 		expect(pass).to.equal(true);
